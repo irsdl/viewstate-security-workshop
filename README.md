@@ -13,6 +13,30 @@ This repository is for the **Exploiting ASP.NET ViewState with YSoNet (YSOSerial
 
 This lab is designed to help security professionals improve their testing capabilities for ASP.NET ViewState vulnerabilities. Use responsibly and only in controlled environments.
 
+## Setup Steps
+
+Run these steps on your isolated Windows Server to prepare the lab environment:
+
+### Step 1: Install IIS and .NET Framework
+
+```powershell
+# Run as Administrator
+.\tools\Install-IISAndDotNet.ps1
+```
+
+This installs IIS with ASP.NET support and all required .NET Framework versions.
+
+### Step 2: Disable Windows Defender
+
+```powershell
+# Run as Administrator
+.\tools\Disable-DefenderProtection.ps1
+```
+
+**Why disable Defender?** For this lab, we disable Windows Defender so that command execution via ViewState exploits is not blocked. This allows you to clearly observe successful exploitation without interference from endpoint protection.
+
+**Important:** In a real-world testing lab or production environment, you should keep protections enabled. The goal of this workshop is to understand the vulnerability mechanics—once you've learned the techniques, practice detecting and blocking these attacks with Defender enabled.
+
 ## Tools
 
 ### Install-IISAndDotNet.ps1
