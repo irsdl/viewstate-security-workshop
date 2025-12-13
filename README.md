@@ -37,3 +37,41 @@ Prepares a Windows Server for the lab by installing IIS and .NET Framework compo
 - WCF Services (optional)
 
 **Note:** For .NET Framework 3.5 installation on isolated servers, you may need to mount a Windows Server ISO and uncomment the source-based installation option in the script.
+
+### Disable-DefenderProtection.ps1
+
+Disables Windows Defender protections to allow exploitation tools to run in the lab environment.
+
+**Location:** `tools/Disable-DefenderProtection.ps1`
+
+**Usage:**
+```powershell
+# Run as Administrator
+.\tools\Disable-DefenderProtection.ps1
+```
+
+**What it disables:**
+- Real-time antivirus monitoring
+- AMSI/script scanning
+- Web/download scanning (IOAV protection)
+- Behavior monitoring
+- Cloud "first seen" blocking
+
+### Enable-DefenderProtection.ps1
+
+Re-enables Windows Defender protections after lab use.
+
+**Location:** `tools/Enable-DefenderProtection.ps1`
+
+**Usage:**
+```powershell
+# Run as Administrator
+.\tools\Enable-DefenderProtection.ps1
+```
+
+**What it enables:**
+- Real-time antivirus monitoring
+- AMSI/script scanning
+- Web/download scanning (IOAV protection)
+- Behavior monitoring
+- Cloud "first seen" blocking
