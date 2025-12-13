@@ -63,6 +63,10 @@ The script will:
 - Create the required application pools
 - Configure the IIS site with multiple vulnerable applications (mac/nomac variants for different .NET versions)
 
+After setup, your IIS Manager should look like this:
+
+![IIS Setup](images/iis_setup.png)
+
 ## Tools
 
 ### Install-IISAndDotNet.ps1
