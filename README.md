@@ -67,6 +67,10 @@ After setup, your IIS Manager should look like this:
 
 ![IIS Setup](images/iis_setup.png)
 
+
+------
+Only for curious readers:
+
 ## Tools
 
 ### Install-IISAndDotNet.ps1
@@ -162,3 +166,9 @@ JSON configuration file that defines the IIS site structure exported from a refe
   - `/mac/*` - Applications with MAC validation enabled
   - `/nomac/*` - Applications without MAC validation
   - Version-specific apps (`v20`, `v40`, `v45`) for testing different .NET runtimes
+
+## Disclaimer
+
+This software has been created purely for the purposes of academic research and for the development of effective defensive techniques, and is not intended to be used to attack systems except where explicitly authorized. Project maintainers are not responsible or liable for misuse of the software. Use responsibly.
+
+This software is a personal project and not related to any companies, including the project owner's and contributors' employers.
