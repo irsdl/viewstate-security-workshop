@@ -1,0 +1,96 @@
+﻿{
+    "ExportedAt":  {
+                       "value":  "\/Date(1765662661212)\/",
+                       "DisplayHint":  2,
+                       "DateTime":  "13 December 2025 13:51:01"
+                   },
+    "SourceServer":  "WIN-ACV3ETS7J8S",
+    "Site":  {
+                 "Name":  "workshop",
+                 "Id":  2,
+                 "ApplicationPool":  "workshop",
+                 "PhysicalPath":  "C:\\workshop\\websites\\wwwdata",
+                 "Bindings":  [
+                                  {
+                                      "Protocol":  "http",
+                                      "IP":  "*",
+                                      "Port":  "80",
+                                      "Hostname":  ""
+                                  },
+                                  {
+                                      "Protocol":  "https",
+                                      "IP":  "*",
+                                      "Port":  "443",
+                                      "Hostname":  ""
+                                  }
+                              ]
+             },
+    "Children":  [
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/extless",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\extless",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/long",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\long",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/mobile",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\mobile",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/transfer",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\transfer",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/v20",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\v20",
+                         "ApplicationPool":  ".NET v2.0"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/v40",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\v40",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/v45",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\v45",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/mac/vsk",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\mac\\vsk",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/nomac/v20",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\nomac\\v20",
+                         "ApplicationPool":  ".NET v2.0"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/nomac/v40",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\nomac\\v40",
+                         "ApplicationPool":  "workshop"
+                     },
+                     {
+                         "Type":  "application",
+                         "Path":  "/nomac/v45",
+                         "PhysicalPath":  "C:\\workshop\\websites\\wwwdata\\nomac\\v45",
+                         "ApplicationPool":  "workshop"
+                     }
+                 ]
+}

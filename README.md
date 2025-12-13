@@ -15,27 +15,53 @@ This lab is designed to help security professionals improve their testing capabi
 
 ## Setup Steps
 
-Run these steps on your isolated Windows Server to prepare the lab environment:
+Run these steps on your isolated Windows Server to prepare the lab environment. Open an **elevated PowerShell terminal** (Run as Administrator) and execute the following commands:
 
-### Step 1: Install IIS and .NET Framework
+### Step 1: Download the Repository
 
 ```powershell
-# Run as Administrator
+# Clone the repository (or download and extract the ZIP)
+git clone https://github.com/irsdl/viewstate-security-workshop.git
+cd viewstate-security-workshop
+```
+
+### Step 2: Install IIS and .NET Framework
+
+```powershell
 .\tools\Install-IISAndDotNet.ps1
 ```
 
 This installs IIS with ASP.NET support and all required .NET Framework versions.
 
-### Step 2: Disable Windows Defender
+### Step 3: Disable Windows Defender
 
 ```powershell
-# Run as Administrator
 .\tools\Disable-DefenderProtection.ps1
 ```
 
 **Why disable Defender?** For this lab, we disable Windows Defender so that command execution via ViewState exploits is not blocked. This allows you to clearly observe successful exploitation without interference from endpoint protection.
 
 **Important:** In a real-world testing lab or production environment, you should keep protections enabled. The goal of this workshop is to understand the vulnerability mechanics—once you've learned the techniques, practice detecting and blocking these attacks with Defender enabled.
+
+### Step 4: Import the Workshop IIS Site
+
+```powershell
+.\import-workshopiis.ps1
+```
+
+This interactive script sets up the vulnerable workshop site in IIS. It will prompt for configuration options with the following defaults:
+
+| Setting | Default Value |
+|---------|---------------|
+| Config file | `.\workshop-iis-config.json` |
+| Site name | `workshop` |
+| Root path | `C:\workshop\websites\wwwdata` |
+| HTTP port | `80` |
+
+The script will:
+- Copy the `content` folder to the site root path
+- Create the required application pools
+- Configure the IIS site with multiple vulnerable applications (mac/nomac variants for different .NET versions)
 
 ## Tools
 
@@ -99,3 +125,36 @@ Re-enables Windows Defender protections after lab use.
 - Web/download scanning (IOAV protection)
 - Behavior monitoring
 - Cloud "first seen" blocking
+
+### import-workshopiis.ps1
+
+Interactive script that imports the workshop IIS site configuration and deploys the vulnerable web content.
+
+**Location:** `import-workshopiis.ps1`
+
+**Usage:**
+```powershell
+# Run as Administrator
+.\import-workshopiis.ps1
+```
+
+**What it does:**
+- Prompts for site name, root path, and HTTP port (with sensible defaults)
+- Copies the `content` folder to the specified root path
+- Creates required application pools (including `.NET v2.0` pool for legacy apps)
+- Creates the IIS site with configured bindings
+- Sets up child applications for various ViewState test scenarios
+
+### workshop-iis-config.json
+
+JSON configuration file that defines the IIS site structure exported from a reference lab server.
+
+**Location:** `workshop-iis-config.json`
+
+**Contains:**
+- Site bindings (HTTP port 80, HTTPS port 443)
+- Application pool assignments
+- Child application paths for different test scenarios:
+  - `/mac/*` - Applications with MAC validation enabled
+  - `/nomac/*` - Applications without MAC validation
+  - Version-specific apps (`v20`, `v40`, `v45`) for testing different .NET runtimes

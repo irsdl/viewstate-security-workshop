@@ -1,0 +1,75 @@
+<%@ Page Language="C#" ValidateRequest="false" Debug="true" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Xml" %>
+<%@ Import Namespace="System.IdentityModel.Tokens" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process XML Payload</title>
+</head>
+<body>
+    <h1>SessionSecurityTokenHandler Test</h1>
+	<div>
+            Current .NET Framework Version: 
+            <%= Environment.Version.ToString() %>
+    </div>
+    <form id="form1" runat="server">
+        <label for="payload">Enter XML Payload:</label><br />
+        <textarea id="payload" name="payload" rows="10" cols="50"><%=Server.HtmlEncode(Request.Form["payload"])%></textarea><br /><br />
+        <input type="submit" value="Process" />
+    </form>
+
+    <hr />
+
+    <h2>Processing Result</h2>
+    <pre>
+<%
+    if (IsPostBack)
+    {
+        try
+        {
+            string payload = Request.Unvalidated["payload"];
+            if (!string.IsNullOrEmpty(payload))
+            {
+                XmlReaderSettings settings = new XmlReaderSettings
+                {
+                    DtdProcessing = DtdProcessing.Prohibit,
+                    XmlResolver = null
+                };
+
+                using (XmlReader tokenXML = XmlReader.Create(new StringReader(payload), settings))
+                {
+                    SessionSecurityTokenHandler mySessionSecurityTokenHandler = new SessionSecurityTokenHandler();
+                    var token = mySessionSecurityTokenHandler.ReadToken(tokenXML);
+
+                    Response.Write("Token successfully read:\n");
+                    Response.Write("Token Type: " + token.GetType().Name);
+                }
+            }
+            else
+            {
+                Response.Write("No payload provided.");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Inline exception handling, including inner exceptions
+            while (ex != null)
+            {
+                Response.Write("Exception: " + Server.HtmlEncode(ex.Message) + "\n");
+                Response.Write("Stack Trace: " + Server.HtmlEncode(ex.StackTrace) + "\n");
+
+                ex = ex.InnerException;
+
+                if (ex != null)
+                {
+                    Response.Write("\n--- Inner Exception ---\n");
+                }
+            }
+        }
+    }
+%>
+    </pre>
+</body>
+</html>
