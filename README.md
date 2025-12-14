@@ -2,6 +2,8 @@
 
 This repository is for the **Exploiting ASP.NET ViewState with YSoNet (YSOSerial.NET)** workshop.
 
+**Recommended Reading:** [Exploiting Deserialisation in ASP.NET via ViewState](https://soroush.me/blog/exploiting-deserialisation-in-asp-net-via-viewstate)
+
 ## Security Warning
 
 **This is an intentionally insecure lab environment for security testing and educational purposes only.**
