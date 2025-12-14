@@ -48,4 +48,4 @@ Install-WindowsFeature Net-Framework-45-ASPNET
 Install-WindowsFeature Web-Asp-Net45
 
 # Optional: WCF Services
-Install-WindowsFeature Net-WCF-Services45
+# Install-WindowsFeature Net-WCF-Services45
