@@ -1,6 +1,6 @@
-# viewstate-security-workshop
+# Viewstate Security Workshop
 
-This repository is for the **Exploiting ASP.NET ViewState with YSoNet (YSOSerial.NET)** workshop.
+This repository is for the **Testing ASP.NET ViewState with YSoNet (YSOSerial.NET)** workshop.
 
 **Recommended Reading:** [Exploiting Deserialisation in ASP.NET via ViewState](https://soroush.me/blog/exploiting-deserialisation-in-asp-net-via-viewstate)
 
