@@ -4,6 +4,10 @@ This repository is for the **Testing ASP.NET ViewState with YSoNet (YSoSerial.NE
 
 **Recommended Reading:** [Exploiting Deserialisation in ASP.NET via ViewState](https://soroush.me/blog/exploiting-deserialisation-in-asp-net-via-viewstate)
 
+**Recommended Tools For Solving The Labs (when lab has been setup):** 
+* https://github.com/irsdl/crapsecrets
+* https://github.com/irsdl/ysonet
+
 ## Security Warning
 
 **This is an intentionally insecure lab environment for security testing and educational purposes only.**
