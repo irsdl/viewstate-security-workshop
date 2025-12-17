@@ -8,6 +8,8 @@ This repository is for the **Testing ASP.NET ViewState with YSoNet (YSoSerial.NE
 * https://github.com/irsdl/crapsecrets
 * https://github.com/irsdl/ysonet
 
+**Workshop Slides:** [EXPLOITING_KNOWN_MACHINE_WORKSHOP_v1.0_NahamCon2025_slides.pdf](EXPLOITING_KNOWN_MACHINE_WORKSHOP_v1.0_NahamCon2025_slides.pdf)
+
 ## Security Warning
 
 **This is an intentionally insecure lab environment for security testing and educational purposes only.**
